@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Clima</title>
+</head>
+<body>
+    <h1>Informe de Clima</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Ingresa la ciudad"> <!-- Input para que el usuario ingrese la ciudad -->
+        <button type="submit">Obtener Clima</button>
+    </form>
+    
+    <table border="1">
+        <tr>
+            <th>Ciudad</th>
+            <th>Temperatura</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>{{ data.name }}</td>
+            <td>{{ data.main.temp }}</td>
+            <td>{{ data.weather.0.description }}</td>
+        </tr>
+    </table>
+</body>
+</html>
